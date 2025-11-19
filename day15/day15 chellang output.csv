@@ -1,0 +1,5 @@
+"service","week","total_patients_admitted","total_patients_refused","average_patient_satisfaction","total_staff","staff_present"
+"general_medicine",20,"1080","810","64.00","27","24"
+"surgery",20,"682","176","99.00","22","22"
+"emergency",20,"609","696","93.00","29","27"
+"ICU",20,"480","192","85.00","48","42"

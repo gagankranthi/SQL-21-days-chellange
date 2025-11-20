@@ -1,0 +1,17 @@
+Name,Email Address,AnswerQuery
+YANAMANAGANDLA GAGAN KRANTHI,gagankranthi@gmail.com,SELECT DISTINCT category FROM pizza_types;
+YANAMANAGANDLA GAGAN KRANTHI,gagankranthi@gmail.com,"SELECT pizza_type_id, name, COALESCE(ingredients, 'Missing Data') AS ingredients_status FROM pizza_types LIMIT 5;"
+YANAMANAGANDLA GAGAN KRANTHI,gagankranthi@gmail.com,"SELECT pizza_id, size, price FROM pizzas WHERE price IS NULL;"
+YANAMANAGANDLA GAGAN KRANTHI,gagankranthi@gmail.com,"SELECT order_id, date, time FROM orders WHERE date = '2015-01-01';"
+YANAMANAGANDLA GAGAN KRANTHI,gagankranthi@gmail.com,"SELECT pizza_id, size, price FROM pizzas ORDER BY price DESC;"
+YANAMANAGANDLA GAGAN KRANTHI,gagankranthi@gmail.com,"SELECT pizza_id, size FROM pizzas WHERE size IN ('L','XL');"
+YANAMANAGANDLA GAGAN KRANTHI,gagankranthi@gmail.com,"SELECT pizza_id, size, price FROM pizzas WHERE price BETWEEN 15.00 AND 17.00;"
+YANAMANAGANDLA GAGAN KRANTHI,gagankranthi@gmail.com,"SELECT pizza_type_id, name FROM pizza_types WHERE name LIKE '%Chicken%';"
+YANAMANAGANDLA GAGAN KRANTHI,gagankranthi@gmail.com,"SELECT order_id, date, time FROM orders WHERE date = '2015-02-15' OR time > '20:00:00';"
+YANAMANAGANDLA GAGAN KRANTHI,gagankranthi@gmail.com,SELECT SUM(quantity) AS total_quantity FROM order_details;
+YANAMANAGANDLA GAGAN KRANTHI,gagankranthi@gmail.com,SELECT AVG(price) AS avg_price FROM pizzas;
+YANAMANAGANDLA GAGAN KRANTHI,gagankranthi@gmail.com,"SELECT od.order_id, SUM(od.quantity * p.price) AS total_order_value FROM order_details od JOIN pizzas p ON od.pizza_id = p.pizza_id GROUP BY od.order_id;"
+YANAMANAGANDLA GAGAN KRANTHI,gagankranthi@gmail.com,"SELECT pt.category AS pizza_category, SUM(od.quantity) AS total_quantity FROM pizza_types pt JOIN pizzas p ON pt.pizza_type_id = p.pizza_type_id JOIN order_details od ON p.pizza_id = od.pizza_id GROUP BY pt.category;"
+YANAMANAGANDLA GAGAN KRANTHI,gagankranthi@gmail.com,"SELECT pt.category AS pizza_category, SUM(od.quantity) AS total_quantity FROM pizza_types pt JOIN pizzas p ON pt.pizza_type_id = p.pizza_type_id JOIN order_details od ON p.pizza_id = od.pizza_id GROUP BY pt.category HAVING SUM(od.quantity) > 5000;"
+YANAMANAGANDLA GAGAN KRANTHI,gagankranthi@gmail.com,"SELECT p.pizza_id, p.pizza_type_id, p.size, pt.name, pt.category FROM pizzas p LEFT JOIN pizza_types pt ON p.pizza_type_id = pt.pizza_type_id LEFT JOIN order_details od ON p.pizza_id = od.pizza_id WHERE od.order_details_id IS NULL;"
+YANAMANAGANDLA GAGAN KRANTHI,gagankranthi@gmail.com,"SELECT p1.pizza_type_id, p1.size AS size_1, p1.price AS price_1, p2.size AS size_2, p2.price AS price_2, (p1.price - p2.price) AS difference_price FROM pizzas p1 JOIN pizzas p2 ON p1.pizza_type_id = p2.pizza_type_id AND p1.pizza_id <> p2.pizza_id WHERE p1.size < p2.size ORDER BY p1.pizza_type_id, p1.size;"
